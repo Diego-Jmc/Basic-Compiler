@@ -3,3 +3,6 @@
 //
 
 #include "CompliationError.h"
+
+CompliationError::CompliationError(int errorCode, const std::string &errorMessage) : errorCode(errorCode),
+                                                                                     errorMessage(errorMessage) {}

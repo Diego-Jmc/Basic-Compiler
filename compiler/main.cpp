@@ -1,6 +1,6 @@
 
 #include "Parser.h"
-#include "AbstractSintaxTree.cpp"
+
 
 void compile_line(){
     std::string source_code;
@@ -19,20 +19,18 @@ void compile_line(){
 
 int main() {
 
- /*   std::string source_code = "1*+1";
+    std::string source_code = "+*1";
 
     Tokenizer *tokenizer = new Tokenizer(source_code);
 
     auto tokens = tokenizer->get_tokens();
 
-    Parser *parser = new Parser(tokens);*/
+    Parser *parser = new Parser(tokens);
 
-    auto ast = new AbstractSintaxTree <std::string>();
-    ast->getRoot()->setValue("->");
-    ast->getRoot()->setLeft(new Node<std::string>("1"));
-    ast->getRoot()->setRight(new Node<std::string>("2"));
 
-    std::cout<<ast->show_post_orden();
+    auto ast = parser->parse_var_declaration(tokens);
+
+    std::cout << ast->show_post_orden() << std::endl;
 
     return 0;
 }

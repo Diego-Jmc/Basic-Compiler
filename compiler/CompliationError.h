@@ -13,7 +13,9 @@ private:
     std::string errorMessage;
 public:
 
-    // Sobrecarga de la función what()
+    CompliationError(int errorCode, const std::string &errorMessage);
+
+// Sobrecarga de la función what()
     const char* what() const noexcept override {
         std::ostringstream errorMsg;
         errorMsg << "CompilationError (Code " << errorCode << "): " << errorMessage;

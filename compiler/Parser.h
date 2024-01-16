@@ -6,6 +6,7 @@
 #define SIMPLE_SCANNER_PARSER_H
 #include "Tokenizer.h"
 #include "AbstractSintaxTree.cpp"
+#include "CompliationError.h"
 
 class Parser {
 

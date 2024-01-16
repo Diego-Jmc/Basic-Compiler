@@ -27,9 +27,6 @@ std::vector<std::string> Parser::parse_expr(std::vector<Token *> _tokens) {
                     std::string right = tokens[index+2]->getTokenValue();
 
 
-
-
-
                 }
 
             }
@@ -46,17 +43,39 @@ AbstractSintaxTree<std::string> *  Parser::parse_var_declaration(std::vector<Tok
 
     auto ast = new AbstractSintaxTree<std::string>();
 
-    if(!tokens.empty()){
+    if(!_tokens.empty()){
 
-        Node<std::string> *left_node = new Node<std::string>();
+        auto *left_node = new Node<std::string>();
+        auto *right_node = new Node<std::string>();
 
-        if(tokens[index]->getTokenType() == NUMBER || tokens[index]->getTokenType() == IDENTIFIER){
-             left_node->setValue(tokens[index]->getTokenValue());
+        if(_tokens[index]->getTokenType() == NUMBER || _tokens[index]->getTokenType() == IDENTIFIER){
+             left_node->setValue(_tokens[index]->getTokenValue());
+        }else{
+            throw CompliationError(1,"Invalid identifier");
         }
 
         index++;
 
+        if(_tokens[index]->getTokenType() == OPERATOR){
+            ast->getRoot()->setValue(_tokens[index]->getTokenValue());
+        }else{
+            throw CompliationError(1,"Invalid operator");
+
+        }
+
+        index++;
+
+        if(_tokens[index]->getTokenType() == NUMBER || _tokens[index]->getTokenType() == IDENTIFIER){
+            right_node->setValue(_tokens[index]->getTokenValue());
+        }else{
+            throw CompliationError(1,"Invalid identifier");
+        }
+
+        ast->getRoot()->setLeft(left_node);
+        ast->getRoot()->setRight(right_node);
+
+
     }
 
-
+    return ast;
 }
