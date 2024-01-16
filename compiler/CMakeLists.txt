@@ -7,4 +7,12 @@ add_executable(simple_scanner main.cpp
         Token.cpp
         Token.h
         Tokenizer.cpp
-        Tokenizer.h)
+        Tokenizer.h
+        Parser.cpp
+        Parser.h
+        Node.cpp
+        Node.h
+        AbstractSintaxTree.cpp
+        AbstractSintaxTree.h
+        CompliationError.cpp
+        CompliationError.h)

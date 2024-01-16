@@ -26,7 +26,7 @@ private:
             {NUMBER, "Number"},
             {IDENTIFIER, "Identifier"},
             {OPERATOR, "Operator"},
-            { WHITESPACE,"Whitespace"},
+            {WHITESPACE,"Whitespace"},
             {BREAKLINE,"Breakline"}
     };
 

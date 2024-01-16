@@ -13,8 +13,8 @@ class Tokenizer {
 
 
     std::unordered_map<char,std::string> operators = {
-            {'+',"Plus"},
-            {'-',"Minus"},
+            {'+',"plus"},
+            {'-',"minus"},
             {'*',"multiply"},
             {'/',"divide"}
     };
