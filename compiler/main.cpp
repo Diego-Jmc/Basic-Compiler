@@ -19,7 +19,9 @@ void compile_line(){
 
 int main() {
 
-    std::string source_code = "+*1";
+    cout<< "compilador" << endl;
+
+    std::string source_code = "1*1";
 
     Tokenizer *tokenizer = new Tokenizer(source_code);
 
